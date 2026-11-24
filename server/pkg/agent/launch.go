@@ -523,6 +523,7 @@ var launchPrefixBlockedArgs = map[string]map[string]blockedArgMode{
 	"qwen":        qwenBlockedArgs,
 	"qwenpaw":     qwenpawBlockedArgs,
 	"droid":       droidBlockedArgs,
+	"metacodes":   metacodesBlockedArgs,
 	"amp":         ampBlockedArgs,
 	"reasonix":    reasonixBlockedArgs,
 	"traecli":     traecliBlockedArgs,

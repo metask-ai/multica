@@ -316,6 +316,7 @@ Chaque outil intégré a une variable de chemin, `MULTICA_<PREFIX>_PATH`. Quand 
 | Devin CLI | `MULTICA_DEVIN` | ✓ |
 | Dim | `MULTICA_DIM` | ✓ (un ID du catalogue dim) |
 | Factory Droid | `MULTICA_DROID` | ✓ |
+| metacodes | `MULTICA_METACODES` | ✓ |
 | GitHub Copilot CLI | `MULTICA_COPILOT` | ✓ |
 | Grok | `MULTICA_GROK` | ✓ |
 | Hermes | `MULTICA_HERMES` | ✓ |
@@ -341,7 +342,7 @@ Chaque outil intégré a une variable de chemin, `MULTICA_<PREFIX>_PATH`. Quand 
 
 QwenPaw et MiniMax Code n'ont pas de variable de modèle, car Multica ne leur envoie jamais de modèle ; consultez [Comparaison des outils de codage IA](/providers#sources-des-modèles). DeepSeek Harness a aussi `MULTICA_DSH_PROFILE_BUNDLE` et `MULTICA_DSH_PLUGIN_PATH`, décrits dans la section suivante.
 
-Les arguments par défaut à l'échelle de la machine via `MULTICA_<PREFIX>_ARGS` sont actuellement pris en charge pour sept outils : Claude Code, Codex, CodeBuddy, Qwen Code, Amp, Factory Droid et QwenPaw. Les variables sont `MULTICA_CLAUDE_ARGS`, `MULTICA_CODEX_ARGS`, `MULTICA_CODEBUDDY_ARGS`, `MULTICA_QWEN_ARGS`, `MULTICA_AMP_ARGS`, `MULTICA_DROID_ARGS` et `MULTICA_QWENPAW_ARGS`. Par exemple :
+Les arguments par défaut à l'échelle de la machine via `MULTICA_<PREFIX>_ARGS` sont actuellement pris en charge pour huit outils : Claude Code, Codex, CodeBuddy, Qwen Code, Amp, Factory Droid, metacodes et QwenPaw. Les variables sont `MULTICA_CLAUDE_ARGS`, `MULTICA_CODEX_ARGS`, `MULTICA_CODEBUDDY_ARGS`, `MULTICA_QWEN_ARGS`, `MULTICA_AMP_ARGS`, `MULTICA_DROID_ARGS`, `MULTICA_METACODES_ARGS` et `MULTICA_QWENPAW_ARGS`. Par exemple :
 
 ```dotenv
 MULTICA_CLAUDE_PATH=/opt/bin/claude
