@@ -9,6 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
+	"slices"
 	"strings"
 	"testing"
 	"time"
@@ -24,7 +25,22 @@ func TestMetacodesHelperProcess(t *testing.T) {
 		data, _ := json.Marshal(map[string]any{"args": os.Args[1:], "prompt": string(input), "cwd": cwd})
 		_ = os.WriteFile(capture, data, 0o600)
 	}
-	fmt.Print(os.Getenv("METACODES_STREAM"))
+	stream := os.Getenv("METACODES_STREAM")
+	if !slices.Contains(os.Args, "--json") {
+		var plain []string
+		for _, line := range strings.SplitAfter(stream, "\n") {
+			var event struct {
+				Type string `json:"type"`
+				Text string `json:"text"`
+			}
+			if json.Unmarshal([]byte(line), &event) == nil && event.Type == "result" {
+				line = event.Text + "\n"
+			}
+			plain = append(plain, line)
+		}
+		stream = strings.Join(plain, "")
+	}
+	fmt.Print(stream)
 	fmt.Fprint(os.Stderr, os.Getenv("METACODES_STDERR"))
 	if os.Getenv("METACODES_FAIL") == "1" {
 		os.Exit(1)
@@ -83,12 +99,12 @@ func TestMetacodesArgumentsProtectProtocol(t *testing.T) {
 	args, err := buildMetacodesArgs(ExecOptions{
 		Model:      "glm-5.2",
 		ExtraArgs:  []string{"--reasoning-effort", "high", "--stream-json"},
-		CustomArgs: []string{"--model", "other", "-p", "hijack", "--session=abc", "-", "--max-tokens", "4096"},
+		CustomArgs: []string{"--model", "other", "--json", "-p", "hijack", "--session=abc", "-", "--max-tokens", "4096"},
 	}, Config{Logger: slog.New(slog.NewTextHandler(io.Discard, nil))})
 	if err != nil {
 		t.Fatal(err)
 	}
-	want := []string{"--stream-json", "--permission-mode", "bypassPermissions", "--model", "glm-5.2",
+	want := []string{"--stream-json", "--json", "--permission-mode", "bypassPermissions", "--model", "glm-5.2",
 		"--reasoning-effort", "high", "--max-tokens", "4096", "-"}
 	if !reflect.DeepEqual(args, want) {
 		t.Fatalf("args = %q, want %q", args, want)

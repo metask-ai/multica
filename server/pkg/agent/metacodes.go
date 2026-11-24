@@ -41,7 +41,7 @@ var metacodesBlockedArgs = map[string]blockedArgMode{
 }
 
 func buildMetacodesArgs(opts ExecOptions, cfg Config) ([]string, error) {
-	args := []string{"--stream-json", "--permission-mode", "bypassPermissions"}
+	args := []string{"--stream-json", "--json", "--permission-mode", "bypassPermissions"}
 	if opts.Model != "" {
 		args = append(args, "--model", opts.Model)
 	}

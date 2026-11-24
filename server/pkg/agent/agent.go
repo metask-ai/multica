@@ -630,7 +630,7 @@ var launchHeaders = map[string]string{
 	"qwen":        "qwen -p (stream-json)",
 	"qwenpaw":     "qwenpaw acp",
 	"droid":       "droid exec (stream-json)",
-	"metacodes":   "metacodes --stream-json",
+	"metacodes":   "metacodes --stream-json --json",
 	"amp":         "amp --execute (stream-json)",
 	"dim":         "dim acp",
 	"devin":       "devin acp",
