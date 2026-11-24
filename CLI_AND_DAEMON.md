@@ -299,6 +299,7 @@ The daemon auto-detects these AI CLIs on your PATH:
 | [Qwen Code](https://github.com/QwenLM/qwen-code) | `qwen` | Alibaba Qwen Code (`qwen -p` with stream-json) |
 | [Amp](https://ampcode.com/docs/cli) | `amp` | Local `amp --execute --stream-json`; requires an access token in `AMP_API_KEY` for unattended execution. Model configuration selects an Amp mode. Managed MCP and live supplements are unsupported. |
 | [Factory Droid](https://docs.factory.com/droid-exec/overview) | `droid` | Native CLI 1.8.0+, `droid exec` with stream-json; sign in or set `FACTORY_API_KEY`. Uses `--auto high`; Multica-managed MCP and live supplements are unsupported. |
+| [metacodes](https://github.com/metask-ai/metacodes) | `metacodes` | metacodes 0.13.0+, headless `metacodes --stream-json -`; sign in with `metacodes login` on the daemon machine. Reads `CLAUDE.md` and `.metacodes/skills/`; runs with `--permission-mode bypassPermissions`. Each task starts a fresh conversation; Multica-managed MCP is unsupported. |
 | [QwenPaw](https://github.com/agentscope-ai/QwenPaw) | `qwenpaw` | QwenPaw ACP coding agent (ACP via `qwenpaw acp`; model is fixed by its own configuration) |
 | [MiniMax Code](https://github.com/MiniMax-AI/minimax-code) | `mcode` | MiniMax Code ACP coding agent (ACP via `mcode acp`; model is managed by MCode) |
 | [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) | `dsh` | DeepSeek Harness (`dsh --profile multica --stdio`; requires the Multica runtime profile to be installed; reads AGENTS.md and .dsh/skills/) |
@@ -492,6 +493,9 @@ Agent-specific overrides:
 | `MULTICA_DROID_PATH` | Custom path to the native `droid` executable |
 | `MULTICA_DROID_MODEL` | Droid model ID; defaults to Droid's own configuration |
 | `MULTICA_DROID_ARGS` | Daemon-wide Droid arguments, e.g. `--reasoning-effort high`; managed protocol, prompt, session, and working-directory flags are filtered |
+| `MULTICA_METACODES_PATH` | Custom path to the `metacodes` binary |
+| `MULTICA_METACODES_MODEL` | metacodes model ID; defaults to metacodes' own configuration |
+| `MULTICA_METACODES_ARGS` | Daemon-wide metacodes arguments, e.g. `--reasoning-effort high`; managed protocol, prompt, permission, model and session flags are filtered |
 | `MULTICA_QWENPAW_PATH` | Custom path to the `qwenpaw` binary |
 | `MULTICA_QWENPAW_ARGS` | Daemon-wide extra QwenPaw arguments (POSIX shellword parsing; managed protocol flags are filtered) |
 | `MULTICA_MCODE_PATH` | Custom path to the `mcode` binary |
