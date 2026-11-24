@@ -315,7 +315,7 @@ func ListModels(ctx context.Context, providerType string, runtimeCmd Command) (C
 	case "amp":
 		// Amp selects its own models; manual IDs select native modes.
 		return Catalog{Models: []Model{}}, nil
-	case "qwen", "droid":
+	case "qwen", "droid", "metacodes":
 		// Qwen Code and Droid use runtime defaults or manual model IDs. An
 		// empty list keeps the runtime default and manual model entry available
 		// without advertising a Token-Plan-specific model to other accounts.

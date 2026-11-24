@@ -23,6 +23,7 @@ var MinVersions = map[string]string{
 	"grok":        "0.2.89",    // ACP + authenticate/session-load/set_model/MCP and --effort thinking flag
 	"qwen":        "0.20.0",    // stream-json protocol captured and verified against Qwen Code 0.20.0
 	"droid":       "1.8.0",     // native exec stream-json envelope verified against the official executable
+	"metacodes":   "0.13.0",    // --stream-json timeline and terminal result line
 	"dim":         "0.3.10",    // cross-run session/load: per-process lock releases on graceful exit
 	"mcode":       "0.1.2",     // ACP v1 session/new, prompt, MCP capability forwarding
 	"muse":        "1.4.10",    // MSP stable surface: session/start, turn/start, item stream

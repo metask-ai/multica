@@ -421,6 +421,8 @@ func skillsDirPath(workDir, provider string) string {
 		return filepath.Join(workDir, ".agents", "skills")
 	case "droid":
 		return filepath.Join(workDir, ".factory", "skills")
+	case "metacodes":
+		return filepath.Join(workDir, ".metacodes", "skills")
 	case "qwenpaw":
 		// QwenPaw discovers workspace-level skills from <workDir>/skill_pool/.
 		// See get_workspace_skills_dir in QwenPaw's skill_system/store.py.

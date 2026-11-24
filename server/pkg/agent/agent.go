@@ -455,6 +455,7 @@ var SupportedTypes = []string{
 	"qwen",
 	"qwenpaw",
 	"droid",
+	"metacodes",
 	"amp",
 	"mcode",
 	"muse",
@@ -568,6 +569,8 @@ func New(agentType string, cfg Config) (Backend, error) {
 		return &qwenpawBackend{cfg: cfg}, nil
 	case "droid":
 		return &droidBackend{cfg: cfg}, nil
+	case "metacodes":
+		return &metacodesBackend{cfg: cfg}, nil
 	case "amp":
 		return &ampBackend{cfg: cfg}, nil
 	case "mcode":
@@ -627,6 +630,7 @@ var launchHeaders = map[string]string{
 	"qwen":        "qwen -p (stream-json)",
 	"qwenpaw":     "qwenpaw acp",
 	"droid":       "droid exec (stream-json)",
+	"metacodes":   "metacodes --stream-json",
 	"amp":         "amp --execute (stream-json)",
 	"dim":         "dim acp",
 	"devin":       "devin acp",

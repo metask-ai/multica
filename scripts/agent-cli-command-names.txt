@@ -25,6 +25,7 @@ qoderclicn
 qwen
 qwenpaw
 droid
+metacodes
 reasonix
 traecli
 zeroclaw

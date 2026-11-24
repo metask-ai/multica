@@ -321,6 +321,9 @@ var probeAgentCLIs = func() map[string]AgentEntry {
 	if e, ok := probe("MULTICA_DROID_PATH", "droid", "MULTICA_DROID_MODEL"); ok {
 		agents["droid"] = e
 	}
+	if e, ok := probe("MULTICA_METACODES_PATH", "metacodes", "MULTICA_METACODES_MODEL"); ok {
+		agents["metacodes"] = e
+	}
 	// QwenPaw (`qwenpaw`) is the QwenPaw CLI agent, driven over ACP via
 	// `qwenpaw acp`. It takes no model env var: the backend never calls
 	// session/set_model (it would rewrite QwenPaw's shared agent config), so
